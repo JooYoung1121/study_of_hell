@@ -5,8 +5,7 @@ def check(number):
         if a in arr:
             return False
         else:
-            if i<len(number)-1
-
+            if i<len(number)-1:
                 if a!=number[i+1]:
                     arr.append(a)
     return True
