@@ -1,4 +1,4 @@
-package study_of_hell.프로그래머스.JSH;
+package study_of_hell.프로그래머스.JSH.level1;
 
 import java.util.Scanner;
 
