@@ -3,7 +3,7 @@ package study_of_hell.백준.JSH;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class _15651_N과_M_3 {
+public class _15649_N과_M_1 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
@@ -14,7 +14,7 @@ public class _15651_N과_M_3 {
     }
 
     static int N, M;
-    static int[] selected;
+    static int[] selected, used;
 
     static void rec_func(int k){
         if(k==M+1){
@@ -22,10 +22,12 @@ public class _15651_N과_M_3 {
             sb.append('\n');
         }else{
             for(int cand = 1; cand<=N;cand++){
-                selected[k] = cand;
+                if(used[cand]==1)   continue;
+
+                selected[k] = cand; used[cand] =1;
                 // k+1 번 ~ M번을 모두 탐색하는 일을 해야 함
                 rec_func(k+1);
-                selected[k]=0;
+                selected[k]=0;  used[cand]=0;
             }
 
         }
