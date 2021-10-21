@@ -1,41 +1,60 @@
-package study_of_hell.백준.JSH;
+package study_of_hell.백준.JSH.정렬;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class _15651_N과_M_3 {
+public class _10825_국영수 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
         FastReader scan = new FastReader();
         N= scan.nextInt();
-        M= scan.nextInt();
-        selected = new int[M+1];
+        a = new Elem[N];
+        for (int i = 0; i < N; i++) {
+            a[i]= new Elem();
+            a[i].name = scan.next();
+            a[i].korean = scan.nextInt();
+            a[i].english = scan.nextInt();
+            a[i].math = scan.nextInt();
+        }
+
     }
 
-    static int N, M;
-    static int[] selected;
+    static int N;
+    static Elem[] a;
 
-    static void rec_func(int k){
-        if(k==M+1){
-            for(int i=1;i<=M;i++) sb.append(selected[i]).append(' ');
-            sb.append('\n');
-        }else{
-            for(int cand = 1; cand<=N;cand++){
-                selected[k] = cand;
-                // k+1 번 ~ M번을 모두 탐색하는 일을 해야 함
-                rec_func(k+1);
-                selected[k]=0;
-            }
+    static class Elem implements Comparable<Elem>{
+        public String name;
+        public int korean, english, math;
 
+        @Override
+        public int compareTo(Elem other) {
+            // 국어 점수 내림차순
+            if(korean!= other.korean) return other.korean-korean;
+            // 영어 점수 오름차순
+            if(english!= other.english) return english-other.english;
+            // 수학 점수 내림차순
+            if(math!=other.math) return other.math-math;
+            return name.compareTo(other.name);
         }
     }
 
+    static void pro(){
+        // 기준을 통해 정렬하기
+        Arrays.sort(a);
+
+        // 정답 출력하기
+        for (int i = 0; i < a.length; i++) {
+            sb.append(a[i].name).append("\n");
+        }
+        System.out.println(sb.toString());
+    }
+
+
     public static void main(String[] args) {
         input();
-
-        rec_func(1);
-        System.out.println(sb.toString());
+        pro();
     }
 
 

@@ -1,9 +1,9 @@
-package study_of_hell.백준.JSH;
+package study_of_hell.백준.JSH.백트래킹;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class _15650_N과_M_2 {
+public class _15649_N과_M_1 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
@@ -21,11 +21,13 @@ public class _15650_N과_M_2 {
             for(int i=1;i<=M;i++) sb.append(selected[i]).append(' ');
             sb.append('\n');
         }else{
-            for(int cand = selected[k-1] +1; cand<=N;cand++){
-                selected[k] = cand;
+            for(int cand = 1; cand<=N;cand++){
+                if(used[cand]==1)   continue;
+
+                selected[k] = cand; used[cand] =1;
                 // k+1 번 ~ M번을 모두 탐색하는 일을 해야 함
                 rec_func(k+1);
-                selected[k]=0;
+                selected[k]=0;  used[cand]=0;
             }
 
         }

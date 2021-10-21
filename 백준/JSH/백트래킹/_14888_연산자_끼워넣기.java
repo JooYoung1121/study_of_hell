@@ -1,4 +1,4 @@
-package study_of_hell.백준.JSH;
+package study_of_hell.백준.JSH.백트래킹;
 
 import java.io.*;
 import java.util.StringTokenizer;

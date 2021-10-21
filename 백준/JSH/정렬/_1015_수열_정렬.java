@@ -1,43 +1,64 @@
-package study_of_hell.백준.JSH;
+package study_of_hell.백준.JSH.정렬;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class _1182_부분수열의_합 {
+public class _1015_수열_정렬 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
         FastReader scan = new FastReader();
         N= scan.nextInt();
-        S= scan.nextInt();
-        nums = new int[N+1];
-        for (int i = 1; i <=N ; i++) nums[i] = scan.nextInt();
+        B = new Elem[N];
+        P = new int[N];
+        for (int i = 0; i < N; i++) {
+            B[i] = new Elem();
+            B[i].num = scan.nextInt();
+            B[i].idx = i;
+        }
+
     }
 
-    static int N, S, ans;
-    static int[] nums;
+    static int N;
+    static Elem[] B;
+    static int[] P;
 
-    // k번째 원소를 포함시킬지 정하는 함수
-    // value:=k-1 번째 원소까지 골라진 원소들의 합
-    static void rec_func(int k, int value){
-        if(k==N+1){
-            //value가 S랑 같은지 확인
-            if(value==S) ans++;
-        }else{
-            // k 번째 원소를 포함시킬지 결정하고 재귀호출
-            rec_func(k+1, value+nums[k]);
-            rec_func(k+1, value);
+    static class Elem implements Comparable<Elem>{
+        /**
+         * @param idx A 배열의 idx 위치를 기억하는 변수
+         * @param num A[idx]의 원래 값
+         */
+        public int num, idx;
+
+        @Override
+        public int compareTo(Elem other) {
+            // 1. num의 비내림차순
+            // 2. num이 같으면 idx 오름차순
+            return num - other.num;
         }
     }
+
+    static void pro(){
+        // 기준을 통해 정렬하기
+        Arrays.sort(B);
+
+        // B 배열의 값을 이용해서 P 배열 채우기
+        for (int b_idx = 0; b_idx < N; b_idx++) {
+            P[B[b_idx].idx] = b_idx;
+        }
+
+        // P 배열 출력
+        for (int i = 0; i < N; i++) {
+            sb.append(P[i]).append(' ');
+        }
+        System.out.println(sb.toString());
+    }
+
 
     public static void main(String[] args) {
         input();
-
-        rec_func(1, 0);
-        if(S==0){
-            ans--;
-        }
-        System.out.println(ans);
+        pro();
     }
 
 

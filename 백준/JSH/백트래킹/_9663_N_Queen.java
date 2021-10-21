@@ -1,55 +1,80 @@
-package study_of_hell.백준.JSH;
+package study_of_hell.백준.JSH.백트래킹;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class _15649_N과_M_1 {
+public class _9663_N_Queen {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
         FastReader scan = new FastReader();
         N= scan.nextInt();
-        M= scan.nextInt();
-        selected = new int[M+1];
+        col = new int[N+1];
     }
 
-    static int N, M;
-    static int[] selected, used;
+    static int N, ans;
+    static int[] col;   // col[i] : i번 행의 퀸은 col[i]번 열에 놓았다는 기록
+    // row 번 ~ N번 행에 대해서 가능한 퀸을 놓는 경우의 수 구하기
 
-    static void rec_func(int k){
-        if(k==M+1){
-            for(int i=1;i<=M;i++) sb.append(selected[i]).append(' ');
-            sb.append('\n');
+    static void rec_func(int row){
+        if(row==N+1){   // 각 행마다 하나씩 잘 놓았다.
+            ans++;
         }else{
-            for(int cand = 1; cand<=N;cand++){
-                if(used[cand]==1)   continue;
-
-                selected[k] = cand; used[cand] =1;
-                // k+1 번 ~ M번을 모두 탐색하는 일을 해야 함
-                rec_func(k+1);
-                selected[k]=0;  used[cand]=0;
+            for (int c = 1; c <=N ; c++) {
+                // valid check (row, c)
+                boolean possible = true;
+                for (int i = 1; i <= row-1; i++) {
+                    if(attackable(row, c, i, col[i])){
+                        possible=false;
+                        break;
+                    }
+                }
+                if(possible){
+                    col[row]=c;
+                    rec_func(row+1);
+                    col[row]=0;
+                }
             }
-
         }
+    }
+
+//    static boolean validity_check(){
+//        for (int i = 1; i <=N ; i++) {
+//            for (int j = 1; j < i; j++) {
+//                if(attackable(i, col[i], j, col[j]))
+//                    return false;
+//            }
+//        }
+//        return true;
+//    }
+
+    static boolean attackable(int r1, int c1, int r2, int c2){
+        if(c1==c2) return true;
+        if(r1 - c1 == r2 - c2) return true;
+        if(r1+c1 ==r2+ c2) return true;
+        return false;
     }
 
     public static void main(String[] args) {
         input();
 
         rec_func(1);
-        System.out.println(sb.toString());
+        System.out.println(ans);
     }
 
 
     static class FastReader {
         BufferedReader br;
         StringTokenizer st;
+
         public FastReader() {
             br = new BufferedReader(new InputStreamReader(System.in));
         }
+
         public FastReader(String s) throws FileNotFoundException {
             br = new BufferedReader(new FileReader(new File(s)));
         }
+
         String next() {
             while (st == null || !st.hasMoreElements()) {
                 try {
@@ -60,15 +85,19 @@ public class _15649_N과_M_1 {
             }
             return st.nextToken();
         }
+
         int nextInt() {
             return Integer.parseInt(next());
         }
+
         long nextLong() {
             return Long.parseLong(next());
         }
+
         double nextDouble() {
             return Double.parseDouble(next());
         }
+
         String nextLine() {
             String str = "";
             try {
