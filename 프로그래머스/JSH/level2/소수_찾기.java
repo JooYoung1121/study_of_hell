@@ -5,10 +5,13 @@ import java.util.Set;
 
 public class 소수_찾기 {
     public static void main(String[] args) {
-        String n1 = "17", n2 = "011";
-        System.out.println(Integer.parseInt("001"));
-//        System.err.println(solution(n1));
-//        System.err.println(solution(n2));
+        String n1 = "17", n2 = "011", n3="2", n4="7843", n5="9999999", n6="1276543";
+        System.err.println(solution(n1));
+        System.err.println(solution(n2));
+        System.err.println(solution(n3));
+        System.err.println(solution(n4));
+        System.err.println(solution(n5));
+        System.err.println(solution(n6));
     }
 
     public static int solution(String numbers){
@@ -25,6 +28,7 @@ public class 소수_찾기 {
         for (int i = 1; i <= chars.length ; i++) {
             recFunc(i);
         }
+        System.err.println(answerSet);
 
         return answerSet.size();
     }
@@ -37,6 +41,7 @@ public class 소수_찾기 {
     public static void recFunc(int count){
         if(answer.length()==count){
             Integer answerInt = Integer.parseInt(answer);
+            System.out.println(answerInt);
             if(isPrimeNumber(answerInt)) answerSet.add(answerInt);
         }else{
             for (int i = 0; i <chars.length; i++) {
@@ -44,7 +49,7 @@ public class 소수_찾기 {
                     answer +=chars[i];
                     visit[i] = true;
                     recFunc(count);
-                    answer = "";
+                    answer=answer.substring(0, answer.length()-1);
                     visit[i] = false;
                 }
             }
@@ -59,7 +64,7 @@ public class 소수_찾기 {
         if(num==1|| num==0 || num%2==0)    // 2의 배수면 소수가 아님
             return false;
 
-        for (int i = 3; i <(int)Math.sqrt(num) ; i+=2) {
+        for (int i = 3; i <num/2 ; i+=2) {
             if(num%i==0)
                 return false;
         }
