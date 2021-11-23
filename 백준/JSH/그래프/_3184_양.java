@@ -24,6 +24,7 @@ public class _3184_양 {
 
     // x, y를 갈 수 있다는걸 알고 방문한 상태
     static void dfs(int x, int y){
+
     }
 
     static void solution(){
