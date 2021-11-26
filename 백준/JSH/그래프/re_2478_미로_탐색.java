@@ -2,10 +2,9 @@ package study_of_hell.백준.JSH.그래프;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class re_2478_미로_탐색 {
-    static _1697_숨바꼭질.FastReader sc = new _1697_숨바꼭질.FastReader();
+    static re_1697_숨바꼭질.FastReader sc = new re_1697_숨바꼭질.FastReader();
     static StringBuilder sb = new StringBuilder();
 
     static int N;

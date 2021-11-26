@@ -4,11 +4,12 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class _1697_숨바꼭질 {
+public class re_1697_숨바꼭질 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int N, K;
+    static int N;
+    static int K;
     static int[] dist;
     static boolean[] visit;
 
@@ -23,23 +24,22 @@ public class _1697_숨바꼭질 {
     static void bfs() {
         Queue<Integer> Q = new LinkedList<>();
         Q.add(N);
-        visit[N] = true;
+        visit[N]= true;
         dist[N] = 0;
 
-        // BFS 과정 시작
         while(!Q.isEmpty()){
             int x = Q.poll();
-            if(x-1 >= 0 && !visit[x-1]){  // x가 1번이 아니고, x-1번을 방문한 적이 없다면
-                visit[x-1] = true;
-                dist[x-1] = dist[x]+1;
-                Q.add(x-1);
+            if (x - 1 >= 0 && !visit[x - 1]) {
+                visit[x - 1] = true;
+                dist[x - 1] = dist[x] + 1;
+                Q.add(x - 1);
             }
-            if(x+1 <=100000 && !visit[x+1]){
-                visit[x+1] = true;
-                dist[x+1] = dist[x]+1;
-                Q.add(x+1);
+            if (x + 1 <= 100000 && !visit[x + 1]) {
+                visit[x + 1] = true;
+                dist[x + 1] = dist[x] + 1;
+                Q.add(x + 1);
             }
-            if(x*2<=100000 && !visit[x*2]){
+            if (x * 2 <= 100000 && !visit[x * 2]) {
                 visit[x * 2] = true;
                 dist[x * 2] = dist[x] + 1;
                 Q.add(x * 2);
