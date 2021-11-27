@@ -15,13 +15,13 @@ public class _4963_섬의_개수 {
     static int count;
 
     static void input(){
-        map = new int[w][h];
-        for (int i = 0; i < w; i++) {
-            for (int j = 0; j < h; j++) {
+        map = new int[h][w];
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
                 map[i][j]=scan.nextInt();
             }
         }
-        visit = new boolean[w][h];
+        visit = new boolean[h][w];
     }
 
     static void dfs(int x, int y){
@@ -30,7 +30,7 @@ public class _4963_섬의_개수 {
         for (int i = 0; i < 8; i++) {
             int nx = x + dir[i][0];
             int ny = y + dir[i][1];
-            if(nx<0 || ny<0 || nx>=w || ny>=h) continue;
+            if(nx<0 || ny<0 || nx>=h || ny>=w) continue;
             if(visit[nx][ny]) continue;
             if(map[nx][ny]==0) continue;
             dfs(nx, ny);
@@ -41,9 +41,9 @@ public class _4963_섬의_개수 {
     static void pro(){
         count=0;
 
-        for (int i = 0; i < w; i++) {
-            for (int j = 0; j < h; j++) {
-                if(!visit[i][j]&&map[i][j]==1) {
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                if (!visit[i][j] && map[i][j] == 1) {
                     count++;
                     dfs(i, j);
                 }
