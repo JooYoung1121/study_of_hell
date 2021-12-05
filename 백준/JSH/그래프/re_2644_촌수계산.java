@@ -10,55 +10,14 @@ public class re_2644_촌수계산 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int n;   // 전체 사람의 수
-    static int x, y;    // 촌수를 계산해야 하는 서로 다른 두 사람의 번호
-    static int m;   // 부모 자식들 간의 관계의 개수
-    static ArrayList<Integer>[] adj;
-    static int[] dist;
-
-
     static void input(){
-        n = scan.nextInt();
-        x = scan.nextInt();
-        y = scan.nextInt();
-        m = scan.nextInt();
-        adj= new ArrayList[n+1];
-        for (int i = 1; i <=n ; i++) {
-            adj[i] = new ArrayList<>();
-        }
-        for (int i = 1; i <=m ; i++) {
-            int x = scan.nextInt(), y = scan.nextInt();
-            adj[x].add(y);
-            adj[y].add(x);
-        }
     }
 
     static void bfs(int start){
-        Queue<Integer> q = new LinkedList<>();
-        for (int i = 1; i <= n ; i++) {
-            dist[i]=-1;
-        }
-
-        q.add(start);
-        dist[start]= 0;
-
-        while(!q.isEmpty()){
-            int x= q.poll();
-
-            for (int y: adj[x]){
-                if(dist[y]!=-1) continue;
-
-                q.add(y);
-                dist[y]= dist[x]+1;
-            }
-        }
 
     }
 
     static void pro(){
-        dist = new int[n+1];
-        bfs(x);
-        System.out.println(dist[y]);
     }
 
 
