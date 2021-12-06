@@ -1,8 +1,6 @@
 package study_of_hell.백준.JSH.그래프;
 
 import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class re_5567_결혼식 {
@@ -10,6 +8,7 @@ public class re_5567_결혼식 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
+
     }
 
     static void bfs(int x){
@@ -17,6 +16,7 @@ public class re_5567_결혼식 {
     }
 
     static void pro(){
+
     }
 
     public static void main(String[] args) {
