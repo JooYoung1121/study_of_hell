@@ -2,52 +2,55 @@ package study_of_hell.백준.JSH.정렬;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class _10825_국영수 {
+    static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static void input(){
-        FastReader scan = new FastReader();
-        N= scan.nextInt();
-        a = new Elem[N];
-        for (int i = 0; i < N; i++) {
-            a[i]= new Elem();
-            a[i].name = scan.next();
-            a[i].korean = scan.nextInt();
-            a[i].english = scan.nextInt();
-            a[i].math = scan.nextInt();
-        }
+    static int n;
+    static Student[] students;
 
+    static void input(){
+        n = scan.nextInt();
+        students = new Student[n];
+        for (int i = 0; i < n; i++) {
+            students[i] = new Student();
+            students[i].name = scan.next();
+            students[i].korean = scan.nextInt();
+            students[i].english = scan.nextInt();
+            students[i].math = scan.nextInt();
+        }
     }
 
-    static int N;
-    static Elem[] a;
-
-    static class Elem implements Comparable<Elem>{
+    static class Student implements Comparable<Student>{
         public String name;
-        public int korean, english, math;
+        public int korean;
+        public int english;
+        public int math;
 
         @Override
-        public int compareTo(Elem other) {
-            // 국어 점수 내림차순
-            if(korean!= other.korean) return other.korean-korean;
-            // 영어 점수 오름차순
-            if(english!= other.english) return english-other.english;
-            // 수학 점수 내림차순
-            if(math!=other.math) return other.math-math;
-            return name.compareTo(other.name);
+        public int compareTo(Student o) {
+            if(korean!=o.korean) return o.korean - korean;
+            else{
+                if(english!=o.english) return english - o.english;
+                else{
+                    if(math!=o.math) return o.math - math;
+                    else return name.compareTo(o.name);
+                }
+            }
         }
     }
 
-    static void pro(){
-        // 기준을 통해 정렬하기
-        Arrays.sort(a);
 
-        // 정답 출력하기
-        for (int i = 0; i < a.length; i++) {
-            sb.append(a[i].name).append("\n");
+    static void pro(){
+        Arrays.sort(students);
+
+        for (int i = 0; i < n; i++) {
+            sb.append(students[i].name+"\n");
         }
+
         System.out.println(sb.toString());
     }
 
