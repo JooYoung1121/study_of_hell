@@ -12,9 +12,6 @@ public class re_2478_미로_탐색 {
     static void input(){
     }
 
-    static void bfs(int x, int y){
-
-    }
 
     static void pro(){
 
