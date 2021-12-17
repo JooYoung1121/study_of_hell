@@ -1,36 +1,24 @@
-package study_of_hell.백준.JSH.완전탐색;
+package study_of_hell.백준.JSH.트리;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class re_15650_N과_M_2 {
-    static StringBuilder sb = new StringBuilder();
+public class re_1991_트리_순회 {
     static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
 
-    static int n;
-    static int m;
-    static int[] adj;
 
     static void input(){
-        n= scan.nextInt();
-        m = scan.nextInt();
-        adj = new int[m+1];
-    }
-
-    static void recFunc(int k){
-
     }
 
     static void pro(){
-        recFunc(1);
-        System.out.println(sb.toString());
+
     }
 
     public static void main(String[] args) {
         input();
         pro();
     }
-
 
     static class FastReader {
         BufferedReader br;
