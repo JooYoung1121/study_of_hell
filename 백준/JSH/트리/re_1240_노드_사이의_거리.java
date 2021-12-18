@@ -1,39 +1,31 @@
-package study_of_hell.백준.JSH.완전탐색;
+package study_of_hell.백준.JSH.트리;
+
+import study_of_hell.백준.JSH.template;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
-public class re_15649_N과_M_1 {
-    static StringBuilder sb = new StringBuilder();
+public class re_1240_노드_사이의_거리 {
     static FastReader scan = new FastReader();
-    
+    static StringBuilder sb = new StringBuilder();
+
     static int n;
     static int m;
-    static int[] selected;
-    
+
     static void input(){
         n= scan.nextInt();
-        m = scan.nextInt();
-        selected  = new int[m+1];
-    }
-    
-    static void recFunc(int k){
+        m=scan.nextInt();
 
     }
-    
+
     static void pro(){
-        recFunc(1);
-        System.out.println(sb.toString());
-    }
 
+    }
 
     public static void main(String[] args) {
         input();
         pro();
     }
-
 
     static class FastReader {
         BufferedReader br;
