@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class re_1991_트리_순회 {
+public class _1991_트리_순회 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
