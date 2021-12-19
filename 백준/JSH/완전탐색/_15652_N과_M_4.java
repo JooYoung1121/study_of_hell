@@ -3,7 +3,44 @@ package study_of_hell.백준.JSH.완전탐색;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class re_15651_N과_M_3 {
+public class _15652_N과_M_4 {
+    static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
+
+    static int n;
+    static int m;
+    static int[] selected;
+
+    static void input(){
+        n=scan.nextInt();
+        m=scan.nextInt();
+        selected = new int[m+1];
+    }
+
+    static void recFunc(int k){
+        if(k==m+1){
+            for (int i = 1; i <=m ; i++) sb.append(selected[i]+" ");
+            sb.append("\n");
+        }else{
+            int start = selected[k-1];
+            if(start==0) start=1;
+            for (int i = start; i <=n ; i++) {
+                selected[k]= i;
+                recFunc(k+1);
+                selected[k]=-1;
+            }
+        }
+    }
+
+    static void pro(){
+        recFunc(1);
+        System.out.println(sb.toString());
+    }
+
+    public static void main(String[] args) {
+        input();
+        pro();
+    }
 
     static class FastReader {
         BufferedReader br;

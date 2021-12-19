@@ -1,33 +1,43 @@
 package study_of_hell.백준.JSH.완전탐색;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
-public class re_15649_N과_M_1 {
+public class _15650_N과_M_2 {
     static StringBuilder sb = new StringBuilder();
     static FastReader scan = new FastReader();
-    
+
     static int n;
     static int m;
     static int[] selected;
-    
+    static boolean[] visit;
+
     static void input(){
         n= scan.nextInt();
         m = scan.nextInt();
-        selected  = new int[m+1];
+        selected = new int[m+1];
+        visit = new boolean[n+1];
     }
-    
+
     static void recFunc(int k){
+        if(k==m+1){
+            for (int i = 1; i <=m; i++) sb.append(selected[i]+" ");
+            sb.append("\n");
+        }else{
+            for (int i = selected[k-1]+1; i <=n ; i++) {
+                if(visit[i]) continue;
+                selected[k]=i; visit[i]=true;
+                recFunc(k+1);
+                selected[k]=-1; visit[i]=false;
+            }
+        }
 
     }
-    
+
     static void pro(){
         recFunc(1);
         System.out.println(sb.toString());
     }
-
 
     public static void main(String[] args) {
         input();
