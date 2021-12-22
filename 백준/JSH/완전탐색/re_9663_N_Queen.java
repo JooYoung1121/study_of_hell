@@ -4,7 +4,29 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class re_9663_N_Queen {
+    static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
+
+    static int n;
+    static int answer;
+
+    static void input(){
+        n=scan.nextInt();
+    }
+
+
+    static void recFunc(int k){
+
+    }
+
+    static void pro(){
+        recFunc(1);
+        System.out.println(sb.toString());
+    }
+
     public static void main(String[] args) {
+        input();
+        pro();
     }
 
 
