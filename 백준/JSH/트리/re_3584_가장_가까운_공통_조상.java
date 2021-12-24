@@ -1,22 +1,18 @@
 package study_of_hell.백준.JSH.트리;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class re_1240_노드_사이의_거리 {
+public class re_3584_가장_가까운_공통_조상 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static int n;
-    static int m;
-
     static void input(){
-        n= scan.nextInt();
-        m=scan.nextInt();
     }
 
-
-    static void pro() {
+    static void pro(){
     }
 
     public static void main(String[] args) {
