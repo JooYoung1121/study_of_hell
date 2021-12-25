@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class _14267_회사_문화 {
+public class _14267_회사_문화_1 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
