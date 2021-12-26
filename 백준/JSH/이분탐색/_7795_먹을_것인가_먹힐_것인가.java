@@ -8,59 +8,50 @@ public class _7795_먹을_것인가_먹힐_것인가 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
+    static int a;
+    static int b;
+    static int[] aList;
+    static int[] bList;
+    static int answer;
+
     static void input() {
-        N = scan.nextInt();
-        M = scan.nextInt();
-        A = new int[N + 1];
-        B = new int[M + 1];
-        for (int i = 1; i <= N; i++) {
-            A[i] = scan.nextInt();
+        a= scan.nextInt();
+        b=scan.nextInt();
+        aList = new int[a];
+        bList = new int[b];
+        for (int i = 0; i < a; i++) {
+            aList[i]=scan.nextInt();
         }
-        for (int i = 1; i <= M; i++) {
-            B[i] = scan.nextInt();
+        for (int i = 0; i < b; i++) {
+            bList[i]=scan.nextInt();
         }
-    }
-
-    static int N, M;
-    static int[] A, B;
-
-    static int lower_bound(int[] A, int L, int R, int X){
-        // A[L...R] 에서 X미만의 수(X보다 작은 수) 중 제일 오른 쪽 인덱스를 return 하는 함수
-        // 그런게 없다면 L-1 return
-        int res = L - 1;  // 만약 A[L...R] 중 X 이하의 수가 없다면 L - 1 을 return 한다.
-        while (L <= R) {
-            int mid = (L + R) / 2;
-            if (A[mid] < X) {
-                res = mid;
-                L = mid + 1;
-            } else {
-                R = mid - 1;
-            }
-        }
-        return res;
     }
 
     static void pro(){
-        // B 배열에 대해 이분탐색을 할 예정이니까, 정렬 해주자!
-        Arrays.sort(B, 1, M+1);
+        Arrays.sort(aList);
+        Arrays.sort(bList);
 
-        int ans = 0;
-        for (int i = 1; i <= N ; i++) {
-            // A[i]를 선택했을 때, B에서는 A[i]보다 작은 게 몇 개나 있는지 카운트 하기
-            ans += lower_bound(B, 1, M, A[i]);
+        answer=0;
+        for (int i = 0; i < b; i++) {
+            for (int j = 0; j < a; j++) {
+                if(bList[i]<aList[j]){
+                    answer+=a-j;
+                    break;
+                }
+            }
         }
-        System.out.println(ans);
+
+        sb.append(answer+"\n");
     }
 
     public static void main(String[] args) {
-        int TT;
-        TT = scan.nextInt();
-        for (int tt = 1; tt <= TT; tt++) {
+        int test = scan.nextInt();
+        while(test-->0){
             input();
             pro();
         }
+        System.out.println(sb.toString());
     }
-
 
     static class FastReader {
         BufferedReader br;
