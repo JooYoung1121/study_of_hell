@@ -1,57 +1,38 @@
 package study_of_hell.백준.JSH.이분탐색;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class _2805_나무_자르기 {
+public class re_1920_수_찾기 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static void input() {
-        N = scan.nextInt();
-        M = scan.nextInt();
-        A = new int[N + 1];
-        for (int i = 1; i <= N; i++) {
-            A[i] = scan.nextInt();
+    static int n;
+    static int[] aList;
+    static int m;
+    static int[] mList;
+
+    static void input(){
+        n=scan.nextInt();
+        aList = new int[n+1];
+        for (int i = 1; i <= n ; i++) {
+            aList[i] = scan.nextInt();
+        }
+        m= scan.nextInt();
+        mList = new int[m];
+        for (int i = 0; i < m; i++) {
+            mList[i] = scan.nextInt();
         }
     }
 
-    static int N, M;
-    static int[] A;
-
-    static boolean determination(int H){
-        // H 높이로 나무를 잘랐을 때, M만큼을 얻을 수 있으면 true, 없으면 false
-        long sum = 0;
-        for (int i = 1; i <=N ; i++) {
-            if(A[i]>H){
-                sum += A[i]-H;
-            }
-        }
-        return sum >= M;
-    }
 
     static void pro(){
-        long L =0, R = 2000000000, ans = 0;
-        // [L.. R ] 범위 안에 정답이 존재
-        // 이분 탐색과 determination 문제를 이용하여 answer을 빠르게 구하자
-        while(L<=R){
-            long mid = (L+R)/2;
-            if(determination((int)mid)){
-                ans = mid;
-                L = mid +1;
-            }else {
-                R = mid-1;
-            }
-        }
-        System.out.println(ans);
     }
 
     public static void main(String[] args) {
         input();
         pro();
     }
-
 
     static class FastReader {
         BufferedReader br;
