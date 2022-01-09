@@ -1,25 +1,22 @@
 package study_of_hell.백준.JSH.Silver.tier4;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class re_1015_수열_정렬 {
+    static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
     }
 
     static void pro(){
-
     }
-
 
     public static void main(String[] args) {
         input();
         pro();
     }
-
 
     static class FastReader {
         BufferedReader br;
@@ -59,4 +56,5 @@ public class re_1015_수열_정렬 {
             return str;
         }
     }
+
 }
