@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class re_1920_수_찾기 {
+public class _1920_수_찾기 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
