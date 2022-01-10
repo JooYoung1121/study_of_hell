@@ -1,6 +1,7 @@
 package study_of_hell.백준.JSH.Silver.tier4;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class re_1920_수_찾기 {
@@ -25,8 +26,34 @@ public class re_1920_수_찾기 {
         }
     }
 
+    static boolean binarySearch(int x, int l, int r){
+        while(l<=r){
+            int mid = (l+r)/2;
+
+            if(aList[mid]==x) return true;
+
+            if(aList[mid]>x){
+                r = mid-1;
+            }else{
+                l = mid+1;
+            }
+        }
+
+        return false;
+    }
+
 
     static void pro(){
+        //aList 정렬
+        Arrays.sort(aList, 1, n+1);
+
+        for (int i = 0; i < m; i++) {
+            int x = mList[i];
+            if(binarySearch(x, 1, n)) sb.append(1).append("\n");
+            else sb.append(0).append("\n");
+        }
+
+        System.out.println(sb.toString());
     }
 
     public static void main(String[] args) {
