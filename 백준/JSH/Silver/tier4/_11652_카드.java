@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class re_11652_카드 {
+public class _11652_카드 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
