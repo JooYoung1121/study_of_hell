@@ -4,14 +4,46 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class re_2805_나무_자르기 {
+public class _2805_나무_자르기 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static void input() {
+    static int n;   // 나무의 수
+    static int m;   // 집으로 가져가려고 하는 나무의 길이
+    static int[] nList;
+
+    static void input(){
+        n=scan.nextInt();
+        m=scan.nextInt();
+        nList = new int[n];
+        for (int i = 0; i < n; i++) {
+            nList[i] = scan.nextInt();
+        }
+    }
+
+    static boolean determination(long length){
+        long sum=0;
+        for (int i = 0; i < n; i++) {
+            if(nList[i]>length) sum+=nList[i]-length;
+        }
+
+        return sum>=m;
     }
 
     static void pro(){
+        long ans=0;
+        long l = 0, r=1000000000;
+        while(l<=r){
+            long mid = (l+r)/2;
+            if(determination(mid)){
+                ans=mid;
+                l=mid+1;
+            }else{
+                r=mid-1;
+            }
+        }
+
+        System.out.println(ans);
     }
 
     public static void main(String[] args) {
