@@ -1,27 +1,56 @@
 package study_of_hell.백준.JSH.Silver.tier2;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class re_1931_회의실_배정 {
+public class _6236_용돈_관리 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
     static int n;
-    static int[][] adj;
+    static int m;
+    static int[] nList;
 
     static void input(){
-        n = scan.nextInt();
-        adj = new int[n][2];
+        n=scan.nextInt();
+        m=scan.nextInt();
+        nList = new int[n];
         for (int i = 0; i < n; i++) {
-            int start = scan.nextInt();
-            int end = scan.nextInt();
-            adj[i] = new int[]{start, end};
+            nList[i]=scan.nextInt();
         }
     }
 
-    static void pro(){
+    static boolean determination(long money){
+        int count=0;
+        long leftMoney=0;
+        for (int i =0; i < n; i++) {
+            if(leftMoney<nList[i]){
+                count++;
+                leftMoney=money-nList[i];
+            }else{
+                leftMoney-=nList[i];
+            }
+        }
 
+        return count<=m;
+    }
+
+    static void pro(){
+        long ans=0;
+        long l= Arrays.stream(nList).max().getAsInt(), r=1000000000;
+
+        while(l<=r){
+            long mid = (l+r)/2;
+            if(determination(mid)){
+                ans=mid;
+                r=mid-1;
+            }else{
+                l=mid+1;
+            }
+        }
+
+        System.out.println(ans);
     }
 
     public static void main(String[] args) {
