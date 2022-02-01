@@ -18,11 +18,8 @@
   - [**백준 스터디**](https://www.acmicpc.net/group/6101)
 
 ### 로드맵
-  - 프로그래머스 1~3 level 풀이
-  - 프로그래머스 코딩테스트 고득점 kit 풀이
-  - 프로그래머스 SQL 고득점 Kit 풀이
-  - 백준 약 100문제 풀이
-  - LeetCode 30문제 풀이
+  - 프로그래머스 3 level 풀기
+  - 백준 silver1~gold4 풀기
 
 </br>
 
