@@ -1,6 +1,6 @@
 package study_of_hell.프로그래머스.JSH.level2;
 
-public class 짝지어_제거하기 {
+public class re_짝지어_제거하기 {
     public static void main(String[] args) {
         String a = "baabaa";
         String a1 ="cdcd";
