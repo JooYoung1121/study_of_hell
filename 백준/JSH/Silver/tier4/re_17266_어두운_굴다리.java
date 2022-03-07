@@ -1,12 +1,12 @@
 package study_of_hell.백준.JSH.Silver.tier4;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class re_17266_어두운_굴다리 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
+
 
     static void input(){
 
