@@ -3,20 +3,41 @@ package study_of_hell.백준.JSH.Silver.tier3;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class re_9095_1_2_3_더하기 {
+public class _9095_1_2_3_더하기 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
+    static int n;
+    static int[] dy = new int[12];
+
     static void input(){
+        n= scan.nextInt();
+    }
+
+    static void preprocess(){
+        dy[1] = 1;
+        dy[2] = 2;
+        dy[3] = 4;
+
+        for (int i = 4; i <= 11 ; i++) {
+            dy[i] = dy[i-3] + dy[i-2] + dy[i-1];
+        }
     }
 
     static void pro(){
-
+        sb.append(dy[n]).append("\n");
     }
 
     public static void main(String[] args) {
-        input();
-        pro();
+        int test = scan.nextInt();
+        preprocess();
+
+        while(test-->0){
+            input();
+            pro();
+        }
+
+        System.out.println(sb.toString());
     }
 
     static class FastReader {
