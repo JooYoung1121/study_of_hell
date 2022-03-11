@@ -3,16 +3,30 @@ package study_of_hell.백준.JSH.Silver.tier3;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class re_11726_2xn_타일링 {
+public class _11726_2xn_타일링 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    static void input(){
+    static int n;
+    static int[] dy;
 
+    static void input(){
+        n=scan.nextInt();
+        dy = new int[1000+1];
+    }
+
+    static void preprocess(){
+        dy[1] = 1;
+        dy[2] = 2;
+
+        for (int i = 3; i <= n ; i++) {
+            dy[i] = (dy[i-1]+dy[i-2])%10007;
+        }
     }
 
     static void pro(){
-
+        preprocess();
+        System.out.println(dy[n]);
     }
 
     public static void main(String[] args) {
