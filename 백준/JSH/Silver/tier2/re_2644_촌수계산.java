@@ -11,15 +11,11 @@ public class re_2644_촌수계산 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
-    }
-
-    static void bfs(int start){
 
     }
 
     static void pro(){
     }
-
 
     public static void main(String[] args) {
         input();
