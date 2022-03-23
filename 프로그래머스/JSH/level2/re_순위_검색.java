@@ -2,7 +2,7 @@ package study_of_hell.프로그래머스.JSH.level2;
 
 import java.util.Arrays;
 
-public class _순위_검색 {
+public class re_순위_검색 {
     public static void main(String[] args) {
         String[] info = {"java backend junior pizza 150","python frontend senior chicken 210",
                 "python frontend senior chicken 150","cpp backend senior pizza 260",
