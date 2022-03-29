@@ -10,10 +10,10 @@ public class re_20364_부동산_다툼 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
-
     }
 
     static void pro(){
+
     }
 
     public static void main(String[] args) {
