@@ -1,19 +1,13 @@
 package study_of_hell.백준.JSH.Silver.tier4;
 
-import study_of_hell.백준.JSH.template;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class re_15970_화살표_그리기 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
-
     }
 
     static void pro(){
