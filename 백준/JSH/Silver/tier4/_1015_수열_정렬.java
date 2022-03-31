@@ -1,16 +1,46 @@
 package study_of_hell.백준.JSH.Silver.tier4;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class re_1015_수열_정렬 {
+public class _1015_수열_정렬 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
+    static int n;
+    static int[] A;
+    static int[] ans;
+
     static void input(){
+        n = scan.nextInt();
+        A = new int[n];
+        for (int i = 0; i < n; i++) {
+            A[i] = scan.nextInt();
+        }
+        ans = new int[n];
     }
 
     static void pro(){
+        int[] B = A.clone();
+        Arrays.sort(B);
+
+        boolean[] check = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            int x = A[i];
+            for(int j = 0; j < n; j++){
+                if(!check[j]&&B[j]==x){
+                    ans[i] = j;
+                    check[j] = true;
+                    break;
+                }
+            }
+        }
+
+        for(int a : ans){
+            sb.append(a).append(" ");
+        }
+        System.out.println(sb.toString());
     }
 
     public static void main(String[] args) {
