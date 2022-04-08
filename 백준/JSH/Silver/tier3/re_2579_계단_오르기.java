@@ -7,7 +7,12 @@ public class re_2579_계단_오르기 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
+
     static void input(){
+    }
+
+    static void preprocess(){
+
     }
 
     static void pro(){
