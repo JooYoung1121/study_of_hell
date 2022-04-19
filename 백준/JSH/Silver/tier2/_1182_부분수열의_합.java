@@ -3,12 +3,52 @@ package study_of_hell.백준.JSH.Silver.tier2;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class re_1182_부분수열의_합 {
+public class _1182_부분수열의_합 {
+    static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
-    public static void main(String[] args) {
+    static void input(){
+        N = scan.nextInt();
+        S = scan.nextInt();
+        nList = new int[N];
+        for (int i = 0; i < N; i++) {
+            nList[i] = scan.nextInt();
+        }
     }
 
+    static int S;
+    static int N;
+    static int[] nList;
+    static int[] temp;
+    static int ans;
+
+    public static void recFunc(int count, int cur, int k){
+        if(k == count){
+            int sum = 0;
+            for (int j : temp) {
+                sum += j;
+            }
+            if(sum == S) ans++;
+        }else{
+            for (int i = cur; i < nList.length; i++) {
+                temp[k] = nList[i];
+                recFunc(count, i+1, k+1);
+                temp[k] = -1;
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        input();
+        ans = 0;
+        for (int i = 1; i <= N ; i++) {
+            temp = new int[i];
+            recFunc(i, 0, 0);
+        }
+
+        System.out.println(ans);
+    }
 
     static class FastReader {
         BufferedReader br;
