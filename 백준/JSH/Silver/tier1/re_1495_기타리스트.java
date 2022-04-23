@@ -1,6 +1,7 @@
 package study_of_hell.백준.JSH.Silver.tier1;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class re_1495_기타리스트 {
