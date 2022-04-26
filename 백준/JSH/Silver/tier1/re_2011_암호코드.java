@@ -10,6 +10,9 @@ public class re_2011_암호코드 {
     static void input(){
     }
 
+    static void preprocess(){
+    }
+
     static void pro(){
     }
 
