@@ -3,15 +3,45 @@ package study_of_hell.백준.JSH.Silver.tier1;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class re_2156_포도주_시식 {
+public class _2156_포도주_시식 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
+        n = scan.nextInt();
+        nList = new int[n];
+        for (int i = 0; i < n; i++) {
+            nList[i] = scan.nextInt();
+        }
+        dy = new int[n][2];
+    }
+
+    static int n;
+    static int[] nList;
+    static int[][] dy;
+
+    static void preprocess(){
+        // init
+        dy[0][1] = nList[0];
+
+        dy[1][0] = Math.max(dy[0][0], dy[0][1]);
+        dy[1][1] = Math.max(dy[0][0], dy[0][1]) + nList[1];
+
+        for (int i = 2; i < n; i++) {
+            dy[i][0] = Math.max(dy[i-1][0], dy[i-1][1]);
+            dy[i][1] = Math.max(dy[i-2][0] + nList[i-1], dy[i-1][0]) + nList[i];
+        }
+
     }
 
     static void pro(){
-
+        if(n == 1){
+            System.out.println(nList[0]);
+        }else{
+            preprocess();
+            int ans = Math.max(dy[n-1][0], dy[n-1][1]);
+            System.out.println(ans);
+        }
     }
 
     public static void main(String[] args) {
