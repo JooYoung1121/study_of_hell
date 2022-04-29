@@ -1,10 +1,23 @@
 package study_of_hell.백준.JSH.Silver.tier1;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class re_14888_연산자_끼워넣기 {
+    static FastReader scan = new FastReader();
+    static StringBuilder sb = new StringBuilder();
+
+    static void input(){
+    }
+
+
+    static void pro(){
+    }
+
     public static void main(String[] args) {
+        input();
+        pro();
     }
 
 
