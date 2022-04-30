@@ -8,8 +8,17 @@ public class re_15565_귀여운_라이언 {
     static StringBuilder sb = new StringBuilder();
 
     static void input(){
-
+        n = scan.nextInt();
+        k = scan.nextInt();
+        nList = new int[n];
+        for (int i = 0; i < n; i++) {
+            nList[i] = scan.nextInt();
+        }
     }
+
+    static int n;
+    static int k;
+    static int[] nList;
 
     static void pro(){
 
