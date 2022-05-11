@@ -11,8 +11,8 @@ public class re_1240_노드_사이의_거리 {
     static int m;
 
     static void input(){
-        n= scan.nextInt();
-        m=scan.nextInt();
+        n = scan.nextInt();
+        m = scan.nextInt();
     }
 
 
