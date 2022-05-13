@@ -11,6 +11,7 @@ public class re_2110_공유기_설치 {
     static void input() {
     }
 
+
     static void pro(){
     }
 
