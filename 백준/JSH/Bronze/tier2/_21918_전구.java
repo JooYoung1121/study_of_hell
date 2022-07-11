@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 public class _21918_전구 {
 
+
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
